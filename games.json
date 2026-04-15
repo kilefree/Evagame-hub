@@ -1,0 +1,17 @@
+[
+  {
+    "name": "贪吃蛇",
+    "cover": "assets/covers/snake.gif",
+    "url": "games/game-demo1/index.html"
+  },
+  {
+    "name": "识别颜色形状",
+    "cover": "assets/covers/xz.gif",
+    "url": "games/game-demo2/index.html"
+  },
+  {
+    "name": "快乐学习ABC",
+    "cover": "assets/covers/ABC.gif",
+    "url": "games/game-demo3/index.html"
+  }
+]

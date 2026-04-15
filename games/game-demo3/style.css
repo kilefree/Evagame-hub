@@ -1,0 +1,165 @@
+:root {
+  --bg: #f7fbff;
+  --panel: #ffffff;
+  --border: #d6e3ff;
+  --text: #1f2a44;
+  --shadow: rgba(52, 107, 255, 0.16);
+  --blue: #5e8cff;
+  --pink: #ff8cc7;
+  --green: #7fd29c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top left, rgba(94, 140, 255, 0.18), transparent 32%),
+              linear-gradient(180deg, #f3f9ff 0%, #f7fbff 100%);
+  color: var(--text);
+}
+
+.game-shell {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 18px 32px;
+}
+
+.top-panel {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.top-panel h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+
+.top-panel p {
+  margin: 0;
+  color: rgba(31, 42, 68, 0.78);
+}
+
+.lang-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.lang-select span {
+  font-size: 0.95rem;
+  color: rgba(31, 42, 68, 0.7);
+}
+
+.lang-button {
+  border: 1px solid rgba(94, 140, 255, 0.3);
+  border-radius: 999px;
+  background: white;
+  color: var(--text);
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+  box-shadow: 0 10px 22px rgba(94, 140, 255, 0.12);
+}
+
+.lang-button.active {
+  border-color: rgba(94, 140, 255, 0.8);
+  background: linear-gradient(135deg, #eef4ff, #e4f0ff);
+}
+
+.lang-button:hover {
+  transform: translateY(-1px);
+}
+
+.instruction {
+  text-align: center;
+  margin-bottom: 18px;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scroll-snap-type: x mandatory;
+}
+
+.cards::-webkit-scrollbar {
+  height: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background: rgba(94, 140, 255, 0.35);
+  border-radius: 999px;
+}
+
+.card {
+  min-width: 190px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 28px;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 20px 16px;
+  box-shadow: 0 18px 40px rgba(94, 140, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(94, 140, 255, 0.45);
+}
+
+.card__letter {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 10px;
+  color: var(--blue);
+}
+
+.card__emoji {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+
+.card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(31, 42, 68, 0.88);
+}
+
+.feedback {
+  margin-top: 20px;
+  min-height: 40px;
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #39613c;
+}
+
+@media (max-width: 680px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .game-shell {
+    padding: 16px 12px 26px;
+  }
+
+  .cards {
+    gap: 12px;
+  }
+}

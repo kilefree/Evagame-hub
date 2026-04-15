@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>亲子颜色识别</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header class="top-panel">
+      <h1>颜色小达人</h1>
+      <p>看颜色块，说出它的颜色，点击对应按钮。</p>
+    </header>
+
+    <section class="play-area">
+      <div class="card" id="colorCard" aria-label="颜色块展示区"></div>
+      <div class="question">
+        <p id="questionText">它是什么颜色？</p>
+      </div>
+      <div class="lang-select" id="langSelect">
+        <span>提示音：</span>
+        <button type="button" class="lang-button active" data-lang="zh">普通话</button>
+        <button type="button" class="lang-button" data-lang="yue">粤语</button>
+        <button type="button" class="lang-button" data-lang="en">English</button>
+      </div>
+      <div class="buttons" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+    </section>
+
+    <footer class="footer-panel">
+      <button id="nextButton" class="big-button">下一题</button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

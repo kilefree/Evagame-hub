@@ -1,0 +1,170 @@
+:root {
+  --bg: #05040c;
+  --panel: rgba(10, 8, 22, 0.9);
+  --glow: #8a2be2;
+  --neon: #08f0ff;
+  --accent: #ff3cff;
+  --text: #f2f7ff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Roboto, "PingFang SC", sans-serif;
+  background: radial-gradient(circle at top, rgba(8, 240, 255, 0.08), transparent 20%),
+              radial-gradient(circle at 80% 20%, rgba(255, 60, 255, 0.1), transparent 18%),
+              linear-gradient(160deg, #02010a 0%, #090717 40%, #05040c 100%);
+  color: var(--text);
+}
+
+.wrapper {
+  width: min(100%, 900px);
+  padding: 24px;
+}
+
+.title-panel {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 20px 24px;
+  border: 1px solid rgba(138, 43, 226, 0.25);
+  background: rgba(8, 8, 20, 0.75);
+  box-shadow: 0 0 50px rgba(8, 240, 255, 0.08);
+  border-radius: 24px;
+}
+
+.title-line {
+  width: 160px;
+  height: 2px;
+  margin: 0 auto 16px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+.title-panel h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #d9f2ff;
+}
+
+.title-panel p {
+  margin-top: 12px;
+  color: rgba(242, 247, 255, 0.78);
+}
+
+.game-panel {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 32px;
+  background: var(--panel);
+  box-shadow: 0 0 60px rgba(138, 43, 226, 0.15);
+}
+
+canvas {
+  display: block;
+  background: radial-gradient(circle at 30% 20%, rgba(8, 240, 255, 0.12), transparent 24%),
+              linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 2px solid rgba(8, 240, 255, 0.25);
+  border-radius: 24px;
+}
+
+.hud {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgba(242, 247, 255, 0.82);
+  font-size: 0.95rem;
+}
+
+.score {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(8, 240, 255, 0.18);
+}
+
+.tip {
+  align-self: center;
+  opacity: 0.85;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(2, 1, 10, 0.88);
+  border-radius: 28px;
+  backdrop-filter: blur(8px);
+}
+
+.overlay-card {
+  width: min(100%, 360px);
+  padding: 28px 24px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(5, 4, 12, 0.95);
+  box-shadow: 0 0 60px rgba(138, 43, 226, 0.15);
+}
+
+.overlay-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+  color: var(--neon);
+}
+
+.overlay-card p {
+  margin-bottom: 22px;
+  color: rgba(242, 247, 255, 0.8);
+}
+
+.neon-button {
+  width: 100%;
+  padding: 14px 18px;
+  margin-top: 8px;
+  border: 1px solid rgba(8, 240, 255, 0.45);
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(8, 240, 255, 0.15), rgba(255, 60, 255, 0.12));
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 22px rgba(8, 240, 255, 0.2);
+}
+
+.hud .neon-button {
+  width: auto;
+  min-width: 110px;
+  padding: 12px 16px;
+  margin-top: 0;
+}
+
+.neon-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 30px rgba(8, 240, 255, 0.32);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 560px) {
+  .wrapper {
+    padding: 16px;
+  }
+
+  .overlay-card {
+    padding: 20px 18px;
+  }
+}

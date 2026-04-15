@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赛博朋克 贪吃蛇</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="title-panel">
+      <div class="title-line"></div>
+      <h1>赛博朋克 贪吃蛇</h1>
+      <p>控制方向键，吞噬能量方块，避免撞墙与自身。</p>
+    </header>
+
+    <main class="game-panel">
+      <canvas id="gameCanvas" width="480" height="480"></canvas>
+      <div class="hud">
+        <div class="score">分数: <span id="scoreValue">0</span></div>
+        <button id="pauseButton" class="neon-button hidden">暂停</button>
+        <div class="tip">按 ←↑→↓ 或 WASD 控制</div>
+      </div>
+      <div id="overlay" class="overlay">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">准备就绪</h2>
+          <p id="overlayDesc">点击开始游戏进入赛博朋克轨道。</p>
+          <button id="startButton" class="neon-button">开始游戏</button>
+          <button id="restartButton" class="neon-button hidden">重新开始</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

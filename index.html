@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>小游戏合集</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background-color: #f5f7fa;
+    }
+    .game-card {
+      transition: all 0.25s ease;
+    }
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .game-card img {
+      border-radius: 12px 12px 0 0;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- 头部标题 -->
+  <header class="py-10 text-center">
+    <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-gray-800">
+      趣味小游戏合集
+    </h1>
+    <p class="text-gray-500 mt-2">点击卡片即可开始游玩</p>
+  </header>
+
+  <!-- 游戏容器 -->
+  <main class="max-w-6xl mx-auto px-4 pb-16">
+    <div id="gameContainer" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
+      <!-- JS 自动渲染卡片 -->
+    </div>
+  </main>
+
+  <script>
+    // 读取游戏配置 & 自动渲染卡片
+    fetch("./games.json")
+      .then(res => res.json())
+      .then(list => {
+        const container = document.getElementById("gameContainer");
+        let html = "";
+        list.forEach(item => {
+          html += `
+            <a href="${item.url}" target="_blank" class="block">
+              <div class="game-card bg-white rounded-xl overflow-hidden shadow-md">
+                <img src="${item.cover}" alt="${item.name}" class="w-full h-40 object-cover bg-gray-100">
+                <div class="py-3 text-center font-medium text-gray-700">${item.name}</div>
+              </div>
+            </a>
+          `;
+        });
+        container.innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById("gameContainer").innerHTML = "<p class='col-span-full text-center text-red-500'>游戏加载失败，请检查配置文件</p>";
+      });
+  </script>
+</body>
+</html>
