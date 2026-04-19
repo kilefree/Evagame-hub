@@ -93,6 +93,54 @@ canvas {
   border: 1px solid rgba(8, 240, 255, 0.18);
 }
 
+.mobile-controls {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.horizontal-controls {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.control-button {
+  width: 64px;
+  height: 64px;
+  border-radius: 22px;
+  border: 1px solid rgba(8, 240, 255, 0.35);
+  background: rgba(8, 240, 255, 0.12);
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  box-shadow: 0 0 18px rgba(8, 240, 255, 0.18);
+}
+
+.control-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 0 8px rgba(8, 240, 255, 0.12);
+}
+
+@media (max-width: 800px), (pointer: coarse) {
+  .mobile-controls {
+    display: flex;
+  }
+
+  .game-panel {
+    padding-bottom: 8px;
+  }
+}
+
 .tip {
   align-self: center;
   opacity: 0.85;

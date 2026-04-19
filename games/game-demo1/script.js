@@ -7,6 +7,7 @@ const overlay = document.getElementById('overlay');
 const overlayTitle = document.getElementById('overlayTitle');
 const overlayDesc = document.getElementById('overlayDesc');
 const scoreValue = document.getElementById('scoreValue');
+const controlButtons = document.querySelectorAll('.control-button');
 
 const gridSize = 20;
 const tileCount = canvas.width / gridSize;
@@ -154,6 +155,51 @@ function startGame() {
   gameLoopId = setInterval(gameTick, 120);
 }
 
+function setDirection(direction) {
+  if (!running && !gameOver) {
+    startGame();
+  }
+
+  switch (direction) {
+    case 'up':
+      if (velocity.y !== 1) velocity = { x: 0, y: -1 };
+      break;
+    case 'down':
+      if (velocity.y !== -1) velocity = { x: 0, y: 1 };
+      break;
+    case 'left':
+      if (velocity.x !== 1) velocity = { x: -1, y: 0 };
+      break;
+    case 'right':
+      if (velocity.x !== -1) velocity = { x: 1, y: 0 };
+      break;
+  }
+}
+
+let touchStartPoint = null;
+
+function handleTouchStart(event) {
+  if (event.changedTouches.length === 0) return;
+  const touch = event.changedTouches[0];
+  touchStartPoint = { x: touch.clientX, y: touch.clientY };
+}
+
+function handleTouchEnd(event) {
+  if (!touchStartPoint || event.changedTouches.length === 0) return;
+  const touch = event.changedTouches[0];
+  const dx = touch.clientX - touchStartPoint.x;
+  const dy = touch.clientY - touchStartPoint.y;
+  touchStartPoint = null;
+
+  if (Math.abs(dx) < 30 && Math.abs(dy) < 30) return;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    setDirection(dx > 0 ? 'right' : 'left');
+  } else {
+    setDirection(dy > 0 ? 'down' : 'up');
+  }
+}
+
 function pauseGame() {
   if (!running) return;
   running = false;
@@ -199,6 +245,15 @@ window.addEventListener('keydown', event => {
       break;
   }
 });
+
+controlButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    setDirection(button.dataset.direction);
+  });
+});
+
+canvas.addEventListener('touchstart', handleTouchStart, { passive: true });
+canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
 
 startButton.addEventListener('click', () => {
   startGame();

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>快乐拼图大冒险</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-page">
+    <header class="hero">
+      <span class="badge">5 关拼图</span>
+      <h1>快乐拼图大冒险</h1>
+      <p>按照参考图把拼图碎片拼回正确位置，适合儿童的趣味关卡。</p>
+    </header>
+
+    <section class="level-panel">
+      <div>
+        <p class="level-tag">第 <strong id="levelNumber">1</strong> 关</p>
+        <h2 id="levelTitle">快乐彩虹</h2>
+        <p id="levelHint">把彩虹和云朵拼回晴朗的天空。</p>
+      </div>
+      <div class="actions">
+        <button id="restartButton" class="pill-button">重置本关</button>
+        <button id="nextButton" class="pill-button" disabled>下一关</button>
+      </div>
+    </section>
+
+    <main class="game-area">
+      <aside class="preview-panel">
+        <div class="panel-label">参考图</div>
+        <div class="preview-image" id="previewImage" aria-label="参考拼图"></div>
+      </aside>
+
+      <section class="puzzle-panel">
+        <div class="board-box">
+          <div class="puzzle-board" id="puzzleBoard"></div>
+        </div>
+
+        <div class="tray-box">
+          <div class="panel-label">拼图碎片</div>
+          <div class="piece-tray" id="pieceTray"></div>
+        </div>
+      </section>
+    </main>
+
+    <div class="status-bar" id="statusText">点击拼图碎片，再点击目标位置进行放置。</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

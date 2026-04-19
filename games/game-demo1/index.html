@@ -19,7 +19,15 @@
       <div class="hud">
         <div class="score">分数: <span id="scoreValue">0</span></div>
         <button id="pauseButton" class="neon-button hidden">暂停</button>
-        <div class="tip">按 ←↑→↓ 或 WASD 控制</div>
+        <div class="tip">按 ←↑→↓、WASD 或触控按钮控制</div>
+      </div>
+      <div class="mobile-controls" aria-label="移动方向控制">
+        <button class="control-button" data-direction="up" aria-label="上">↑</button>
+        <div class="horizontal-controls">
+          <button class="control-button" data-direction="left" aria-label="左">←</button>
+          <button class="control-button" data-direction="right" aria-label="右">→</button>
+        </div>
+        <button class="control-button" data-direction="down" aria-label="下">↓</button>
       </div>
       <div id="overlay" class="overlay">
         <div class="overlay-card">

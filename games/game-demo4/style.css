@@ -1,0 +1,241 @@
+:root {
+  --bg: #f6fdf9;
+  --panel: #ffffff;
+  --surface: #e2f4ff;
+  --border: #c6e9ff;
+  --text: #25404d;
+  --accent: #4ac4ff;
+  --accent-strong: #1f8ec7;
+  --success: #4f9555;
+  --shadow: rgba(35, 87, 121, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(circle at top left, rgba(74, 196, 255, 0.18), transparent 28%),
+              linear-gradient(180deg, #faffff 0%, #eaf8ff 100%);
+  color: var(--text);
+}
+
+body, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.game-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 20px 32px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(74, 196, 255, 0.18);
+  color: var(--accent-strong);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.hero p {
+  margin: 10px auto 0;
+  max-width: 680px;
+  color: rgba(37, 64, 77, 0.78);
+}
+
+.level-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding: 18px 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(74, 196, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(35, 87, 121, 0.06);
+}
+
+.level-panel .level-tag {
+  margin: 0 0 6px;
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.level-panel h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.level-panel p {
+  margin: 6px 0 0;
+  color: rgba(37, 64, 77, 0.75);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.pill-button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(74, 196, 255, 0.18), rgba(0, 154, 221, 0.14));
+  color: var(--accent-strong);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.pill-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.pill-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.game-area {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(320px, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.preview-panel,
+.tray-box,
+.board-box {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 18px 30px rgba(35, 87, 121, 0.08);
+}
+
+.panel-label {
+  font-size: 0.95rem;
+  color: var(--accent-strong);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.preview-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 20px;
+  background-color: #edf8ff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border: 1px solid rgba(74, 196, 255, 0.2);
+}
+
+.puzzle-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.puzzle-board {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.board-cell {
+  position: relative;
+  border-radius: 16px;
+  border: 2px dashed rgba(74, 196, 255, 0.28);
+  background: rgba(238, 247, 255, 0.9);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.board-cell:hover {
+  border-color: rgba(74, 196, 255, 0.48);
+}
+
+.piece-tray {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(74px, 1fr));
+  gap: 12px;
+}
+
+.puzzle-piece {
+  aspect-ratio: 1;
+  border-radius: 16px;
+  border: 2px solid rgba(74, 196, 255, 0.24);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 14px 24px rgba(35, 87, 121, 0.08);
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+
+.puzzle-piece:hover {
+  transform: translateY(-2px);
+  border-color: rgba(74, 196, 255, 0.45);
+}
+
+.puzzle-piece.selected {
+  box-shadow: 0 0 0 4px rgba(74, 196, 255, 0.22);
+  border-color: rgba(74, 196, 255, 0.7);
+}
+
+.puzzle-piece.placed {
+  cursor: move;
+}
+
+.status-bar {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(74, 196, 255, 0.1);
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+@media (max-width: 860px) {
+  .game-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .game-page {
+    padding: 16px 14px 24px;
+  }
+
+  .level-panel {
+    padding: 16px 16px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+}
