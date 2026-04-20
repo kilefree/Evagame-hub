@@ -5,19 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eva游戏合集库</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #f5f7fa;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+      font-family: 'Fredoka One', cursive;
     }
     .game-card {
-      transition: all 0.25s ease;
+      transition: all 0.3s ease;
+      border: 3px solid #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .game-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-color: #ffd700;
     }
     .game-card img {
-      border-radius: 12px 12px 0 0;
+      border-radius: 16px 16px 0 0;
+    }
+    .game-title {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    header h1 {
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      font-size: clamp(3rem, 8vw, 4rem);
+    }
+    header p {
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
   </style>
 </head>
@@ -50,7 +74,7 @@
             <a href="${item.url}" target="_blank" class="block">
               <div class="game-card bg-white rounded-xl overflow-hidden shadow-md">
                 <img src="${item.cover}" alt="${item.name}" class="w-full h-40 object-cover bg-gray-100">
-                <div class="py-3 text-center font-medium text-gray-700">${item.name}</div>
+                <div class="py-4 text-center game-title">${item.name}</div>
               </div>
             </a>
           `;
