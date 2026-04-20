@@ -228,6 +228,12 @@ function placePieceToCell(piece, cell) {
 }
 
 function handleBoardClick(cell) {
+  if (selectedPiece && selectedPiece.parentElement === cell) {
+    restorePieceToTray(selectedPiece);
+    updateStatus('已撤回放置的碎片。');
+    return;
+  }
+
   if (selectedPiece) {
     placePieceToCell(selectedPiece, cell);
     return;
