@@ -188,8 +188,11 @@ body, button {
 
 .puzzle-piece {
   aspect-ratio: 1;
+  width: 100%;
+  height: auto;
   border-radius: 16px;
   border: 2px solid rgba(74, 196, 255, 0.24);
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   box-shadow: 0 14px 24px rgba(35, 87, 121, 0.08);
