@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机计算</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrapper">
+    <header class="title-panel">
+      <div class="title-line"></div>
+      <h1>随机计算</h1>
+      <p>选择正确答案，测试你的计算能力！</p>
+    </header>
+
+    <main class="game-panel">
+      <div class="settings-panel">
+        <div class="setting-group">
+          <label>数值范围：</label>
+          <select id="rangeSelect">
+            <option value="10">10以内</option>
+            <option value="20">20以内</option>
+            <option value="50">50以内</option>
+            <option value="100">100以内</option>
+          </select>
+        </div>
+        <button id="startButton" class="neon-button">开始游戏</button>
+      </div>
+
+      <div id="gameArea" class="game-area hidden">
+        <div class="hud">
+          <div class="stats">
+            <span>题目: <span id="questionNum">0</span></span>
+            <span>分数: <span id="scoreValue">0</span></span>
+          </div>
+          <div class="language-switch">
+            <button class="lang-btn" data-lang="zh-CN" title="普通话">普通话</button>
+            <button class="lang-btn" data-lang="zh-TW" title="粤语">粤语</button>
+            <button class="lang-btn" data-lang="en" title="English">EN</button>
+          </div>
+        </div>
+        
+        <div class="question-display">
+          <div class="equation" id="equation">2 + 3 = ?</div>
+          <button id="speakButton" class="speak-button" aria-label="朗读题目">🔊</button>
+        </div>
+
+        <div class="answers-grid" id="answersGrid">
+          <button class="answer-button" data-index="0">5</button>
+          <button class="answer-button" data-index="1">6</button>
+          <button class="answer-button" data-index="2">7</button>
+          <button class="answer-button" data-index="3">8</button>
+        </div>
+
+        <div id="feedback" class="feedback hidden"></div>
+      </div>
+
+      <div id="overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <h2 id="overlayTitle">游戏结束</h2>
+          <p id="overlayDesc">你的得分：<span id="finalScore">0</span> / <span id="totalQuestions">0</span></p>
+          <button id="restartButton" class="neon-button">再来一局</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

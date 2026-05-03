@@ -18,5 +18,10 @@
     "name": "愉快的拼图",
     "cover": "assets/covers/pt.gif",
     "url": "games/game-demo4/index.html"
+  },
+  {
+    "name": "随机计算",
+    "cover": "assets/covers/js.gif",
+    "url": "games/game-demo5/index.html"
   }
 ]
